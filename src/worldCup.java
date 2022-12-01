@@ -28,10 +28,10 @@ public class worldCup {
         team[17] = new teams("E", "Japan", 1, 0, 1);
         team[18] = new teams("E", "Costa Rica", 1, 0, 1);
         team[19] = new teams("E", "Germany", 0, 1, 1);
-        team[20] = new teams("F", "Croatia", 1, 1, 0);
-        team[21] = new teams("F", "Morocco", 1, 1, 0);
-        team[22] = new teams("F", "Belgium", 1, 0, 1);
-        team[23] = new teams("F", "Canada", 0, 0, 2);
+        team[20] = new teams("F", "Morocco", 2, 1, 0);
+        team[21] = new teams("F", "Croatia", 1, 2, 0);
+        team[22] = new teams("F", "Belgium", 1, 1, 1);
+        team[23] = new teams("F", "Canada", 0, 0, 3);
         team[24] = new teams("G", "Brazil", 2, 0, 0);
         team[25] = new teams("G", "Switzerland", 1, 0, 1);
         team[26] = new teams("G", "Cameroon", 0, 1, 1);
@@ -82,10 +82,8 @@ public class worldCup {
                 break;
             }
         }
-
+        input.close();
     }
-
-
     
     public void menu(){
         System.out.println("\n------------------------------------");
@@ -99,8 +97,6 @@ public class worldCup {
     }
     
     public void getGroupStandings(){
-        int groupAph = 0;
-        double groupBph = 0;
         System.out.println("\nCurrent Standings");
         System.out.println("---------------------------------------------------------");
         System.out.println("\nGroup A:" + "\t" + "Country:" + "\t" + "Wins:" + "\t"+ "Draws:" + "\t" + "Losses:" );
@@ -158,11 +154,13 @@ public class worldCup {
                 System.out.println(team[i]);
             }
         }
-        System.out.println("---------------------------------------------------------");
+        System.out.println("-----------------------------------------------------");
     }
 
     public void getMatchResults(){
-        System.out.println("Match 1 Results");
+        
+        System.out.println("\nMatch Results");
+        System.out.println("--------------------------------------------------------------------------");
         System.out.println("\nGroup :" + "\t" + "  Home:" + "\t"  + "\t"+ "\t" + "Away:" + "\t" + "\t" +"\t" + "Date:" );
         for(int j = 0; j< matches.length; j++){
             System.out.println(matches[j]);
@@ -172,7 +170,5 @@ public class worldCup {
     public static void main(String[] args) {
         new worldCup();
     }   
-
-
     
 }
