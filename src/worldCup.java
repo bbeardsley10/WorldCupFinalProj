@@ -1,7 +1,10 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class worldCup {
+
+    public static void main(String[] args) {
+        new worldCup();
+    }   
 
     teams team[];
     match matches[];
@@ -66,19 +69,19 @@ public class worldCup {
 
         Scanner input = new Scanner(System.in);
         int option;
+        menu();
         while(true){
-            menu();
             System.out.print("Select An Option: ");
             option = input.nextInt();
-            if(option == 4){
+            if(option == 3){
                 break;
             }
             switch(option){
                 case 1 : 
-                getGroupStandings();
+                adminMenu();
                 break;
                 case 2 :
-                getMatchResults();
+                userMenu();
                 break;
             }
         }
@@ -86,15 +89,91 @@ public class worldCup {
     }
     
     public void menu(){
-        System.out.println("\n------------------------------------");
-        System.out.println("Welcome to the 2022 World Cup Stats");
-        System.out.println("------------------------------------");
+        System.out.println("\n-----------------------------------------------");
+        System.out.println("Welcome to the 2022 World Cup Stats Main Menu!");
+        System.out.println("-----------------------------------------------\n");
+        System.out.println("Option 1 - Admin Menu");
+        System.out.println("Option 2 - User Menu");
+        System.out.println("Option 3 - Quit");
+    }
+
+    public void adminMenuOptions(){
+        System.out.println("\n---------------------------");
+        System.out.println("Welcome to the Admin Menu");
+        System.out.println("---------------------------\n");
         System.out.println("Option 1 - View Group Standings");
         System.out.println("Option 2 - View Game Results");
         System.out.println("Option 3 - View Playoff Results");
-        System.out.println("Option 4 - Quit");
-        
+        System.out.println("Option 4 - Quit and Return Back to the Main Menu");
     }
+    public void adminMenuFunction(){
+        Scanner input = new Scanner(System.in);
+        while(true){
+            System.out.print("Select An Option: ");
+            int option2 = input.nextInt();
+            if(option2 == 4){
+                menu();
+                break;
+            }
+            else{
+                switch(option2){
+                    case 1 : 
+                    getGroupStandings();
+                    adminMenuOptions();
+                    break;
+                    case 2 :
+                    getMatchResults();
+                    adminMenuOptions();
+                    break;
+                }
+            }
+        }
+        input.close();
+    }
+    public void adminMenu(){
+        adminMenuOptions();
+       adminMenuFunction();
+    }
+
+    public void userMenu(){
+        userMenuOptions();
+        userMenuFunction();
+    }
+
+    public void userMenuOptions(){
+        System.out.println("\n---------------------------");
+        System.out.println("Welcome to the User Menu");
+        System.out.println("---------------------------\n");
+        System.out.println("Option 1 - View Group Standings");
+        System.out.println("Option 2 - View Game Results");
+        System.out.println("Option 3 - View Playoff Results");
+        System.out.println("Option 4 - Return Back to the Main Menu");
+    }
+
+    public void userMenuFunction(){
+        Scanner input = new Scanner(System.in);
+        while(true){
+            System.out.print("Select An Option: ");
+            int option = input.nextInt();
+            if(option == 4){
+                menu();
+                break;
+            } else{
+                switch(option){
+                    case 1 : 
+                    getGroupStandings();
+                    userMenuOptions();
+                    break;
+                    case 2 :
+                    getMatchResults();
+                    userMenuOptions();
+                    break;
+                }
+            } 
+        }
+        input.close();
+    }
+
     
     public void getGroupStandings(){
         System.out.println("\nCurrent Standings");
@@ -167,8 +246,6 @@ public class worldCup {
         }
     }
 
-    public static void main(String[] args) {
-        new worldCup();
-    }   
+    
     
 }
