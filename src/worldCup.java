@@ -44,7 +44,7 @@ public class worldCup {
         team[30] = new teams("H", "South Korea", 0, 1, 1);
         team[31] = new teams("H", "Uruguay", 0, 1, 1);
 
-        matches = new match[20];
+        matches = new match[50];
 
         matches[0] = new match("A", "Qatar", "Ecuador", 0,2, "11-20-2022");
         matches[1] = new match("B", "England", "Iran", 6,2, "11-21-2022");
@@ -66,7 +66,35 @@ public class worldCup {
         matches[17] = new match("A", "Qatar", "Senegal", 1, 3, "11-25-2022");
         matches[18] = new match("A", "Netherlands", "Ecuador", 1, 1, "11-25-2022");
         matches[19] = new match("B", "England", "USA", 0, 0, "11-25-2022");
-
+        matches[20] = new match("D", "Tunisia", "Australia", 0, 1, "11-26-2022");
+        matches[21] = new match("C", "Poland", "Saudi Arabia", 2, 0, "11-26-2022");
+        matches[22] = new match("D", "France", "Denmark", 2, 1, "11-26-2022");
+        matches[23] = new match("C", "Argentina", "Mexico", 2, 0, "11-26-2022");
+        matches[24] = new match("E", "Japan", "Costa Rica", 0, 1, "11-27-2022");
+        matches[25] = new match("F", "Belgium", "Morocco", 0, 2, "11-27-2022");
+        matches[26] = new match("F", "Croatia", "Canada", 4, 1, "11-27-2022");
+        matches[27] = new match("E", "Spain", "Germany", 1, 1, "11-27-2022");
+        matches[28] = new match("G", "Cameroon", "Serbia", 3, 3, "11-28-2022");
+        matches[29] = new match("H", "South Korea", "Ghana", 2, 3, "11-28-2022");
+        matches[30] = new match("G", "Brazil", "Switzerland", 1, 0, "11-28-2022");
+        matches[31] = new match("H", "Portugal", "Uruguay", 2, 0, "11-28-2022");
+        matches[32] = new match("A", "Ecuador", "Senegal", 1, 2, "11-29-2022");
+        matches[33] = new match("A", "Netherlands", "Qatar", 2, 0, "11-29-2022");
+        matches[34] = new match("B", "Iran", "USA", 0, 1, "11-29-2022");
+        matches[35] = new match("B", "Wales", "England", 0, 3, "11-29-2022");
+        matches[36] = new match("D", "Tunisia", "France", 1, 0, "11-30-2022");
+        matches[37] = new match("D", "Australia", "Denmark", 1, 0, "11-30-2022");
+        matches[38] = new match("C", "Poland", "Argentina", 0, 2, "11-30-2022");
+        matches[39] = new match("C", "Saudi Arabia", "Mexico", 1, 2, "11-30-2022");
+        matches[40] = new match("F", "Croatia", "Belgium", 0, 0, "12-01-2022");
+        matches[41] = new match("F", "Canada", "Morocco", 1, 2, "12-01-2022");
+        matches[42] = new match("E", "Japan", "Spain", 2, 1, "12-01-2022");
+        matches[43] = new match("E", "Costa Rica", "Germany", 2, 4, "12-01-2022");
+        matches[44] = new match("H", "South Korea", "Portugal", 2, 1, "12-02-2022");
+        matches[45] = new match("H", "Ghana", "Uruguay", 0, 2, "12-02-2022");
+        matches[46] = new match("G", "Serbia", "Switzerland", 2, 3, "12-02-2022");
+        matches[47] = new match("G", "Cameroon", "Brazil", 1, 0, "12-02-2022");
+        matches[48] = new match(null, null, null, 0, 0, null);
         Scanner input = new Scanner(System.in);
         int option;
         menu();
@@ -85,7 +113,7 @@ public class worldCup {
                 break;
             }
         }
-        input.close();
+        //input.close();
     }
     
     public void menu(){
@@ -128,7 +156,7 @@ public class worldCup {
                 }
             }
         }
-        input.close();
+        //input.close();
     }
     public void adminMenu(){
         adminMenuOptions();
@@ -171,7 +199,7 @@ public class worldCup {
                 }
             } 
         }
-        input.close();
+        //input.close();
     }
 
     
