@@ -8,6 +8,7 @@ public class worldCup {
 
     teams team[];
     match matches[];
+    bracket games[];
 
     public worldCup(){
         team = new teams[32];
@@ -27,24 +28,25 @@ public class worldCup {
         team[13] = new teams("D", "Australia", 2, 0, 1);
         team[14] = new teams("D", "Tunisia", 1, 1, 1);
         team[15] = new teams("D", "Denmark", 0, 1, 2);
-        team[16] = new teams("E", "Spain", 1, 1, 0);
-        team[17] = new teams("E", "Japan", 1, 0, 1);
-        team[18] = new teams("E", "Costa Rica", 1, 0, 1);
-        team[19] = new teams("E", "Germany", 0, 1, 1);
+        team[16] = new teams("E", "Japan", 2, 0, 1);
+        team[17] = new teams("E", "Spain", 1, 1, 1);
+        team[18] = new teams("E", "Germany", 1, 1, 1);
+        team[19] = new teams("E", "Costa Rica", 1, 0, 2);
         team[20] = new teams("F", "Morocco", 2, 1, 0);
         team[21] = new teams("F", "Croatia", 1, 2, 0);
         team[22] = new teams("F", "Belgium", 1, 1, 1);
         team[23] = new teams("F", "Canada", 0, 0, 3);
-        team[24] = new teams("G", "Brazil", 2, 0, 0);
-        team[25] = new teams("G", "Switzerland", 1, 0, 1);
-        team[26] = new teams("G", "Cameroon", 0, 1, 1);
-        team[27] = new teams("G", "Serbia", 0, 1, 1);
-        team[28] = new teams("H", "Portugal", 2, 0, 0);
-        team[29] = new teams("H", "Ghana", 1, 0, 1);
-        team[30] = new teams("H", "South Korea", 0, 1, 1);
-        team[31] = new teams("H", "Uruguay", 0, 1, 1);
-
-        matches = new match[50];
+        team[24] = new teams("G", "Brazil", 2, 0, 1);
+        team[25] = new teams("G", "Switzerland", 2, 0, 1);
+        team[26] = new teams("G", "Cameroon", 1, 1, 1);
+        team[27] = new teams("G", "Serbia", 0, 1, 2);
+        team[28] = new teams("H", "Portugal", 2, 0, 1);
+        team[29] = new teams("H", "South Korea", 1, 1, 1);
+        team[30] = new teams("H", "Uruguay", 1, 1, 1);
+        team[31] = new teams("H", "Ghana", 1, 0, 2);
+        
+        
+        matches = new match[48];
 
         matches[0] = new match("A", "Qatar", "Ecuador", 0,2, "11-20-2022");
         matches[1] = new match("B", "England", "Iran", 6,2, "11-21-2022");
@@ -94,7 +96,22 @@ public class worldCup {
         matches[45] = new match("H", "Ghana", "Uruguay", 0, 2, "12-02-2022");
         matches[46] = new match("G", "Serbia", "Switzerland", 2, 3, "12-02-2022");
         matches[47] = new match("G", "Cameroon", "Brazil", 1, 0, "12-02-2022");
-        matches[48] = new match(null, null, null, 0, 0, null);
+        
+        games = new bracket[12];
+        games[0] = new bracket("Round of 16", "Netherlands", "USA",3, 1, "12-03-2022");
+        games[1] = new bracket("Round of 16", "Argentina", "Australia", 2, 1, "12-03-2022");
+        games[2] = new bracket("Round of 16", "France", "Poland", 3, 1, "12-04-2022");
+        games[3] = new bracket("Round of 16", "England", "Senegal", 3, 0, "12-04-2022");
+        games[4] = new bracket("Round of 16", "Japan", "Croatia", 1, 3, "12-05-2022");
+        games[5] = new bracket("Round of 16", "Brazil", "South Korea", 4, 1, "12-05-2022");
+        games[6] = new bracket("Round of 16", "Morocco", "Spain", 3, 0, "12-06-2022");
+        games[7] = new bracket("Round of 16", "Portugal", "Switzerland", 6, 1, "12-06-2022");
+        games[8] = new bracket("Round of 8", "Netherlands", "Argentina", 0, 0, "12-09-2022");
+        games[9] = new bracket("Round of 8", "Croatia", "Brazil", 0, 0, "12-09-2022");
+        games[10] = new bracket("Round of 8", "England", "France", 0, 0, "12-09-2022");
+        games[11] = new bracket("Round of 8", "Morocco", "Portugal", 0, 0, "12-09-2022");
+
+
         Scanner input = new Scanner(System.in);
         int option;
         menu();
@@ -132,14 +149,15 @@ public class worldCup {
         System.out.println("Option 1 - View Group Standings");
         System.out.println("Option 2 - View Game Results");
         System.out.println("Option 3 - View Playoff Results");
-        System.out.println("Option 4 - Quit and Return Back to the Main Menu");
+        System.out.println("Option 4 - Enter Playoff Match Results");
+        System.out.println("Option 5 - Quit and Return Back to the Main Menu");
     }
     public void adminMenuFunction(){
         Scanner input = new Scanner(System.in);
         while(true){
             System.out.print("Select An Option: ");
             int option2 = input.nextInt();
-            if(option2 == 4){
+            if(option2 == 5){
                 menu();
                 break;
             }
@@ -151,6 +169,14 @@ public class worldCup {
                     break;
                     case 2 :
                     getMatchResults();
+                    adminMenuOptions();
+                    break;
+                    case 3 :
+                    getBracketResults();
+                    adminMenuOptions();
+                    break;
+                    case 4 :
+                    addMatch();
                     adminMenuOptions();
                     break;
                 }
@@ -196,10 +222,13 @@ public class worldCup {
                     getMatchResults();
                     userMenuOptions();
                     break;
+                    case 3 :
+                    getBracketResults();
+                    userMenuOptions();
+                    break;
                 }
             } 
         }
-        //input.close();
     }
 
     
@@ -267,13 +296,86 @@ public class worldCup {
     public void getMatchResults(){
         
         System.out.println("\nMatch Results");
-        System.out.println("--------------------------------------------------------------------------");
-        System.out.println("\nGroup :" + "\t" + "  Home:" + "\t"  + "\t"+ "\t" + "Away:" + "\t" + "\t" +"\t" + "Date:" );
+        System.out.println("-------------------");
+        System.out.println("\nDate: " + "\t" + "\t"+"Home:" + "\t"  + "\t"+ "\t" + "Away:" + "\t" + "\t" + "\t"+ "Group :" );
         for(int j = 0; j< matches.length; j++){
             System.out.println(matches[j]);
         }
     }
 
+    public void getBracketResults(){
+
+        System.out.println("\n--------------------------");
+        System.out.println("Current Playoff Results");
+        System.out.println("--------------------------");
+        
+        System.out.println("\nRound of 16 Results");
+        System.out.println("-----------------------");
+        
+        System.out.println("\nDate: " + "\t" + "\t"+"Home:" + "\t"  + "\t"+ "\t" + "Away:");
+        for(int i = 0; i <games.length; i++){
+            if(games[i].getRound() == "Round of 16"){
+                System.out.println(games[i]);
+            }
+        }
+
+        System.out.println("\nRound of 8 Results TBD");
+        System.out.println("--------------------------\n");
+        for(int i = 0; i <games.length; i++){
+            if(games[i].getRound() == "Round of 8"){
+                System.out.println(games[i]);
+            }
+        }
+    }
     
-    
+
+    // ! Wasn't able to finish the fucntion to add user input values for match results to an array
+    // ! It will go through and ask you for you inputs and quit after
+    public void addMatch(){
+        
+        Scanner input = new Scanner(System.in);
+        System.out.print("\nEnter the Playoff Round: ");
+        String choice = input.nextLine();
+        System.out.print("\nEnter the Date in (MM-DD-YYYY) format: ");
+        choice = input.nextLine();
+        if(choice == null){
+            System.out.print("\nPlease enter a valid date: ");
+        } else{
+            String date = choice;
+        }
+
+        System.out.print("\nEnter Home Team: ");
+        choice = input.nextLine();
+        if(choice == null){
+            System.out.print("\nPlease enter a team name: ");
+        } else{
+            String homeTeam = choice;
+        }
+
+        System.out.print("\nEnter Away Team: ");
+        choice = input.nextLine();
+        if(choice == null){
+            System.out.print("\nPlease enter a team name: ");
+        } else{
+            String awayTeam = choice;
+            
+        }
+
+        System.out.print("\nEnter Home Team Score: ");
+        int choice2 = input.nextInt();
+        if(choice2 < 0){
+            System.out.print("\nPlease enter a valid score: ");
+        } else{
+            int hometeamscore = choice2;
+        }
+
+        System.out.print("\nEnter Away Team Score: ");
+         choice2 = input.nextInt();
+        if(choice2 < 0){
+            System.out.print("\nPlease enter a valid score: ");
+        } else{
+            int awayteamscore = choice2;
+        }
+        
+    }
 }
