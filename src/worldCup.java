@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-public class worldCup {
-    
-=======
 import java.util.Scanner;
-
 public class worldCup {
 
     public static void main(String[] args) {
@@ -382,5 +377,4 @@ public class worldCup {
         }
         
     }
->>>>>>> 5670a8b25b2a5a9302b4227528ea8abfc399686c
 }
