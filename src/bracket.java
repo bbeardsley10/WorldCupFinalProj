@@ -1,8 +1,6 @@
 public class bracket {
-<<<<<<< HEAD
   
-}
-=======
+
   private String homeTeam, awayTeam, date, round;
   private int hometeamscore, awayteamscore;
 
@@ -68,4 +66,3 @@ public class bracket {
     this.round = round;
   }
 }
->>>>>>> 5670a8b25b2a5a9302b4227528ea8abfc399686c
