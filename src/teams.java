@@ -1,7 +1,4 @@
 public class teams {
-<<<<<<< HEAD
-    
-=======
     private String team, group;
     private int win, draw, loss;
 
@@ -37,5 +34,4 @@ public class teams {
     public int getLosses(){
         return this.loss;
     }
->>>>>>> 5670a8b25b2a5a9302b4227528ea8abfc399686c
 }
