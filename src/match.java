@@ -13,7 +13,7 @@ public class match {
     }
 
     public String toString(){
-        return String.format("%-10s",this.group) + this.homeTeam + ": " + this.hometeamscore + "\t"+ "\t"  + this.awayTeam + ": " + this.awayteamscore +"\t"+"\t"   + this.date; 
+        return String.format("%-10s",this.date) +"\t" +String.format("%-5s", this.homeTeam) + ": " + this.hometeamscore + "\t" +"\t"  + String.format("%-5s",this.awayTeam) +": " + this.awayteamscore +"\t" + "\t" + this.group;
     }
     public String getGroupName() {
         return this.group;
