@@ -97,7 +97,7 @@ public class worldCup {
         matches[46] = new match("G", "Serbia", "Switzerland", 2, 3, "12-02-2022");
         matches[47] = new match("G", "Cameroon", "Brazil", 1, 0, "12-02-2022");
         
-        games = new bracket[12];
+        games = new bracket[16];
         games[0] = new bracket("Round of 16", "Netherlands", "USA",3, 1, "12-03-2022");
         games[1] = new bracket("Round of 16", "Argentina", "Australia", 2, 1, "12-03-2022");
         games[2] = new bracket("Round of 16", "France", "Poland", 3, 1, "12-04-2022");
@@ -106,11 +106,14 @@ public class worldCup {
         games[5] = new bracket("Round of 16", "Brazil", "South Korea", 4, 1, "12-05-2022");
         games[6] = new bracket("Round of 16", "Morocco", "Spain", 3, 0, "12-06-2022");
         games[7] = new bracket("Round of 16", "Portugal", "Switzerland", 6, 1, "12-06-2022");
-        games[8] = new bracket("Round of 8", "Netherlands", "Argentina", 0, 0, "12-09-2022");
-        games[9] = new bracket("Round of 8", "Croatia", "Brazil", 0, 0, "12-09-2022");
-        games[10] = new bracket("Round of 8", "England", "France", 0, 0, "12-09-2022");
-        games[11] = new bracket("Round of 8", "Morocco", "Portugal", 0, 0, "12-09-2022");
-
+        games[8] = new bracket("Round of 8", "Netherlands", "Argentina", 3, 4, "12-09-2022");
+        games[9] = new bracket("Round of 8", "Croatia", "Brazil", 4, 2, "12-09-2022");
+        games[10] = new bracket("Round of 8", "England", "France", 1, 2, "12-09-2022");
+        games[11] = new bracket("Round of 8", "Morocco", "Portugal", 1, 0, "12-09-2022");
+        games[12] = new bracket("Final Four", "Argentina", "Croatia", 3, 0, "12-14-2022");
+        games[13]= new bracket("Final Four", "France", "Morocco", 2, 0, "12-14-2022");
+        games[14] = new bracket("Third Place Game", "Croatia", "Morocco", 2, 1, "12-17-2022");
+        games[15] = new bracket("Championship Game", "Argentina", "France", 4, 2, "12-18-2022");
 
         Scanner input = new Scanner(System.in);
         int option;
@@ -150,14 +153,15 @@ public class worldCup {
         System.out.println("Option 2 - View Game Results");
         System.out.println("Option 3 - View Playoff Results");
         System.out.println("Option 4 - Enter Playoff Match Results");
-        System.out.println("Option 5 - Quit and Return Back to the Main Menu");
+        System.out.println("Option 5 - View Winner");
+        System.out.println("Option 6 - Quit and Return Back to the Main Menu");
     }
     public void adminMenuFunction(){
         Scanner input = new Scanner(System.in);
         while(true){
             System.out.print("Select An Option: ");
             int option2 = input.nextInt();
-            if(option2 == 5){
+            if(option2 == 6){
                 menu();
                 break;
             }
@@ -177,6 +181,10 @@ public class worldCup {
                     break;
                     case 4 :
                     addMatch();
+                    adminMenuOptions();
+                    break;
+                    case 5 : 
+                    getWinner();
                     adminMenuOptions();
                     break;
                 }
@@ -201,7 +209,8 @@ public class worldCup {
         System.out.println("Option 1 - View Group Standings");
         System.out.println("Option 2 - View Game Results");
         System.out.println("Option 3 - View Playoff Results");
-        System.out.println("Option 4 - Return Back to the Main Menu");
+        System.out.println("Option 4 - View Winner");
+        System.out.println("Option 5 - Return Back to the Main Menu");
     }
 
     public void userMenuFunction(){
@@ -209,7 +218,7 @@ public class worldCup {
         while(true){
             System.out.print("Select An Option: ");
             int option = input.nextInt();
-            if(option == 4){
+            if(option == 5){
                 menu();
                 break;
             } else{
@@ -224,6 +233,10 @@ public class worldCup {
                     break;
                     case 3 :
                     getBracketResults();
+                    userMenuOptions();
+                    break;
+                    case 4 :
+                    getWinner();
                     userMenuOptions();
                     break;
                 }
@@ -319,13 +332,45 @@ public class worldCup {
             }
         }
 
-        System.out.println("\nRound of 8 Results TBD");
+        System.out.println("\nRound of 8 Results");
         System.out.println("--------------------------\n");
         for(int i = 0; i <games.length; i++){
             if(games[i].getRound() == "Round of 8"){
                 System.out.println(games[i]);
             }
         }
+
+        System.out.println("\nFinal Four");
+        System.out.println("--------------------------\n");
+        for(int i = 0; i <games.length; i++){
+            if(games[i].getRound() == "Final Four"){
+                System.out.println(games[i]);
+            }
+        }
+
+        System.out.println("\nThird Place Match");
+        System.out.println("--------------------------\n");
+        for(int i = 0; i <games.length; i++){
+            if(games[i].getRound() == "Third Place Game"){
+                System.out.println(games[i]);
+            }
+        }
+
+        System.out.println("\nChampionship Game");
+        System.out.println("--------------------------\n");
+        for(int i = 0; i <games.length; i++){
+            if(games[i].getRound() == "Championship Game"){
+                System.out.println(games[i]);
+            }
+        }
+    }
+
+    public void getWinner(){
+        System.out.println("\nThe Winner of the 2022 Qatar World Cup is Argentina!!!");
+        System.out.println("\n");
+        System.out.println("Runner up of the 2022 Qatar World Cup is France!!!");
+        System.out.println("\n");
+        System.out.println("Third Place Winner of the 2022 Qatar World Cup is Croatia!!!");
     }
     
 
